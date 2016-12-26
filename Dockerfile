@@ -1,4 +1,4 @@
-FROM plexinc/pms-docker:latest
+FROM plexinc/pms-docker:plexpass
 MAINTAINER Simon Hartcher <github.com/deevus>
 
 RUN apt-get update -q && \
