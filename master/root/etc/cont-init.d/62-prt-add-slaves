@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+
+printf "$SLAVE_IP\n$SLAVE_PORT\n$SLAVE_USER\ny" | prt add_host

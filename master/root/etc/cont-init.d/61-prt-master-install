@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+# get host ip address
+cat /etc/hosts | grep `hostname` | awk '{print $1}' | \
+
+# install prt master
+prt install && \
+install -o plex -g plex ~/.prt.conf ~plex/
