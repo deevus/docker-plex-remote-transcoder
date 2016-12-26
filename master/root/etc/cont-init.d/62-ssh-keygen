@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -f /ssh/id_rsa.pub ]
+then
+    printf "/root/.ssh/id_rsa\n\n" | ssh-keygen && \
+    mkdir -p /ssh && \
+    cp /root/.ssh/id_rsa.pub /ssh
+fi
