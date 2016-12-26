@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+# download and extract prt
+curl -J -L -o /tmp/prt.zip https://github.com/wnielson/Plex-Remote-Transcoder/archive/master.zip && \
+unzip /tmp/prt.zip -d /tmp && \
+
+# install prt
+pushd /tmp/Plex-Remote-Transcoder-master && \
+python setup.py install && \
+popd
