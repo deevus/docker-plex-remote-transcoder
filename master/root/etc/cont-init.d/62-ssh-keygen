@@ -1,8 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if [ ! -f ~/.ssh/id_rsa.pub ]
+if [ ! -f /config/.ssh/id_rsa ]
 then
-    printf "~/.ssh/id_rsa\n\n" | ssh-keygen && \
-    mkdir -p /ssh && \
-    cp ~/.ssh/id_rsa.pub /ssh
+    printf "/config/.ssh/id_rsa\n\n" | ssh-keygen
 fi
