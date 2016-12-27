@@ -1,4 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-mkdir -p ~/.ssh && \
-echo $SSH_PUBLIC_KEY > ~/.ssh/authorized_keys
