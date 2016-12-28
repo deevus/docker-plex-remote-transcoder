@@ -10,7 +10,10 @@ then
         exit 1
     else
         echo "INFO: importing public key" && \
-        cat /config/.ssh/id_rsa.pub > /etc/ssh/plex/authorized_keys
+        # import public key
+        cat /config/.ssh/id_rsa.pub > /etc/ssh/plex/authorized_keys && \
+        # enable plex user ssh login
+        usermod -p '*' plex
     fi
 else
     echo "INFO: Public key already loaded. Skipping..."
