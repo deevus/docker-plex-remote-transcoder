@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # get host ip address
-cat /etc/hosts | grep `hostname` | awk '{print $1}' | \
+echo $MASTER_IP | \
 
 # install prt master
 prt install && \
