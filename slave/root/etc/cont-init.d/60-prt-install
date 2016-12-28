@@ -8,4 +8,4 @@ unzip /tmp/prt.zip -d /tmp && \
 pushd /tmp/Plex-Remote-Transcoder-master && \
 python setup.py install && \
 popd && \
-printf "\n" | prt install
+printf "$MASTER_IP\n" | prt install
