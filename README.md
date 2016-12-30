@@ -113,7 +113,7 @@ This means mounting network volumes is out of the question.
 
 ...
 
-However, I have created an [auxillary slave image](https://github.com/deevus/docker-plex-remote-transcoder-nfs) 
+However, I have created an [auxiliary slave image](https://github.com/deevus/docker-plex-remote-transcoder-nfs) 
 that can be used to mount NFS shares inside the container. If you want a master image that can do the same thing, 
 you'll have to ask nicely, but I didn't need it, so I didn't do it. 
 
