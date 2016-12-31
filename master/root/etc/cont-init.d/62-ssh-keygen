@@ -1,6 +1,11 @@
 #!/usr/bin/with-contenv bash
 
-if [ ! -f /config/.ssh/id_rsa ]
-then
-    printf "/config/.ssh/id_rsa\n\n" | ssh-keygen
+if [ ! -d /config/.ssh ]; then
+    mkdir -p /config/.ssh
+fi
+
+if [ ! -f /config/.ssh/id_rsa ]; then
+    printf "/config/.ssh/id_rsa\n\n" | ssh-keygen -f /config/.ssh/id_rsa -t rsa -N ''
+    cp /config/.ssh/id_rsa.pub /config/.ssh/authorized_keys
+    chown -R plex:plex /config/.ssh
 fi
