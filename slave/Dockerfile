@@ -17,4 +17,6 @@ COPY root/ /
 RUN rm -rf /etc/services.d/plex && \
     sed -i -e 's;/config:/bin/false;/config:/bin/bash;g' /etc/passwd
 
+RUN echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+
 EXPOSE 22
