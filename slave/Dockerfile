@@ -18,7 +18,8 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 RUN mkdir /var/run/sshd
-COPY root/ /
+COPY slave/root/ /
+COPY shared/ /
 RUN rm -rf /etc/services.d/plex && \
     sed -i -e 's;/config:/bin/false;/config:/bin/bash;g' /etc/passwd
 

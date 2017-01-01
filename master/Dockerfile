@@ -19,4 +19,7 @@ RUN mkdir /var/run/sshd
 # Allow master to SSH to slave without a host key
 RUN echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
-COPY root/ /
+COPY master/root/ /
+COPY shared/ /
+
+EXPOSE 22
