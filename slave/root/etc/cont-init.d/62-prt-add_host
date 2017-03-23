@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+sudo -u plex \
+ssh $MASTER_USER@$MASTER_IP -p $MASTER_PORT "\
+    printf \"$SLAVE_IP\\n$SLAVE_PORT\\n$SLAVE_USER\\ny\" | prt add_host
+"
