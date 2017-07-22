@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+# Allowing ssh to reuse the same connection can significantly speeds up communication between master/slave
+
+mkdir -p /config/.ssh/controlmasters
+
+if [ ! -f /config/.ssh/config ]
+then
+    printf "Host *\n    ControlPath ~/.ssh/controlmasters/%%r@%%h:%%p\n    ControlMaster auto\n    ControlPersist 5m\n" > /config/.ssh/config
+fi
