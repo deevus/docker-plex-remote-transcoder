@@ -2,5 +2,13 @@
 
 if [ ! -f /config/.ssh/id_rsa ]
 then
-    printf "/config/.ssh/id_rsa\n\n" | ssh-keygen
+    mkdir -p /config/.ssh
+    ssh-keygen -P '' -f /config/.ssh/id_rsa
+    printf "StrictHostKeyChecking no\n" >> /etc/ssh/ssh_config
+
+    printf "Host *\n    ControlPath ~/.ssh/controlmasters/%%r@%%h:%%p\n    ControlMaster auto\n    ControlPersist 2h\n" > /config/.ssh/config
+    mkdir -p /config/.ssh/controlmasters
+
+    chown -R plex.plex /config/.ssh
+    chmod 600 /config/.ssh/config /config/.ssh/id_rsa /config/.ssh/id_rsa.pub
 fi
