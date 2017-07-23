@@ -6,5 +6,5 @@ mkdir -p /config/.ssh/controlmasters
 
 if [ ! -f /config/.ssh/config ]
 then
-    printf "Host *\n    ControlPath ~/.ssh/controlmasters/%%r@%%h:%%p\n    ControlMaster auto\n    ControlPersist 5m\n" > /config/.ssh/config
+    printf "Host *\n    ControlPath ~/.ssh/controlmasters/%%r@%%h:%%p\n    ControlMaster auto\n    ControlPersist 2h\n" > /config/.ssh/config
 fi
