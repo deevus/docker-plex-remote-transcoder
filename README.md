@@ -53,6 +53,8 @@ docker run \
 -p 22:22 \
 -e TZ="<timezone>" \
 -e MASTER_IP="<hostIPAddress>" \
+-e PLEX_UID="<plexUid>" \
+-e PLEX_GID="<plexGid>" \
 -v <path/to/plex/database>:/config \
 -v <path/to/transcode/temp>:/transcode \
 -v <path/to/tv/series>:/data/tvshows \
