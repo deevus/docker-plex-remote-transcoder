@@ -1,8 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-# get host ip address
-echo $MASTER_IP | \
-
-# install prt master
-prt install && \
+# configure prt master
+echo $MASTER_IP | prt install && \
 install -o plex -g plex ~/.prt.conf ~plex/
