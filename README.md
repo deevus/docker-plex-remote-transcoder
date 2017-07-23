@@ -34,6 +34,8 @@ docker run \
 -e SLAVE_IP="<slaveIPAddress>" \
 -e SLAVE_PORT="<slavePort>" \
 -e SLAVE_USER="<slaveUser>" \
+-e PLEX_UID="<plexUid>" \
+-e PLEX_GID="<plexGid>" \
 -v <path/to/plex/database>:/config \
 -v <path/to/transcode/temp>:/transcode \
 -v <path/to/tv/series>:/data/tvshows \
