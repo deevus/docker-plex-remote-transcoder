@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+
+# Register with the master
+echo 'y' | prt add_host $SLAVE_IP $SLAVE_PORT $SLAVE_USER
