@@ -1,8 +1,12 @@
 #!/usr/bin/with-contenv bash
 
-# get host ip address
-echo $MASTER_IP | \
 
-# install prt master
-prt install && \
-install -o plex -g plex ~/.prt.conf ~plex/
+# prt install doesn't like this if it exists
+rm /var/lib/plexmediaserver/Library 2>/dev/null
+
+# configure prt master
+echo $MASTER_IP | prt install
+
+# current versions of prt/plex require Library in this location
+ln -s /config/Library /var/lib/plexmediaserver/Library
+

@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+
+# remove myself from the master
+prt remove_host $SLAVE_IP $SLAVE_PORT $SLAVE_USER;
