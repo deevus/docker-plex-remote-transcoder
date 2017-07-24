@@ -31,9 +31,6 @@ docker run \
 -e PLEX_CLAIM="<claimToken>" \
 -e ADVERTISE_IP="http://<hostIPAddress>:32400/" \
 -e MASTER_IP="<hostIPAddress>" \
--e SLAVE_IP="<slaveIPAddress>" \
--e SLAVE_PORT="<slavePort>" \
--e SLAVE_USER="<slaveUser>" \
 -e PLEX_UID="<plexUid>" \
 -e PLEX_GID="<plexGid>" \
 -v <path/to/plex/database>:/config \
@@ -53,6 +50,9 @@ docker run \
 -p 22:22 \
 -e TZ="<timezone>" \
 -e MASTER_IP="<hostIPAddress>" \
+-e SLAVE_IP="<slaveIPAddress>" \
+-e SLAVE_PORT="<slavePort>" \
+-e SLAVE_USER="<slaveUser>" \
 -e PLEX_UID="<plexUid>" \
 -e PLEX_GID="<plexGid>" \
 -v <path/to/plex/database>:/config \
