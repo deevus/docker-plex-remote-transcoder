@@ -27,4 +27,6 @@ COPY root/ /
 RUN rm -rf /etc/services.d/plex && \
     sed -i -e 's;/config:/bin/false;/config:/bin/bash;g' /etc/passwd
 
+USER plex
+
 EXPOSE 22

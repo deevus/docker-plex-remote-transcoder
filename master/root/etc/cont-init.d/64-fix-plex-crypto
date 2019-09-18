@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+if [ -f /usr/lib/plexmediaserver/lib/libcrypto.so.1.0.0 ]
+then
+    echo "I can't remove /usr/lib/plexmediaserver/lib/libcrypto.so.1.0.0 or plex stops, but remove after 1st run"
+else
+    echo "No bad crypto in this dir so another will be used."
+fi
