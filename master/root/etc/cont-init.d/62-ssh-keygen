@@ -7,14 +7,7 @@ then
     printf "StrictHostKeyChecking no\n" >> /etc/ssh/ssh_config
     #update the ssh config and set the pub/private keys
     sed -i 's+#   IdentityFile ~+IdentityFile /config+' /etc/ssh/ssh_config
-    #printf "IdentityFile /config/.ssh/identity
-    ##IdentityFile /config/.ssh/id_rsa
-    #IdentityFile /config/.ssh/id_dsa
-    #IdentityFile /config/.ssh/id_ecdsa
-    #IdentityFile /config/.ssh/id_ed25519
     printf "GlobalKnownHostsFile /config/.ssh/known_hosts" >> /etc/ssh/ssh_config
-
-
 
     printf "Host *\n    ControlPath ~/.ssh/controlmasters/%%r@%%h:%%p\n    ControlMaster auto\n    ControlPersist 2h\n" > /config/.ssh/config
     mkdir -p /config/.ssh/controlmasters
