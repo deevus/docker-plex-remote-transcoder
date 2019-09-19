@@ -3,10 +3,10 @@ if grep -q 'StrictHostKeyChecking no'  /etc/ssh/ssh_config;
 then
     echo "ssh_config contains everything we need"
 else
-    printf "StrictHostKeyChecking no\n" >> /etc/ssh/ssh_config
+    #printf "StrictHostKeyChecking no\n" >> /etc/ssh/ssh_config
     #update the ssh config and set the pub/private keys
-    sed -i 's+#   IdentityFile ~+IdentityFile /config+' /etc/ssh/ssh_config
-    printf "GlobalKnownHostsFile /config/.ssh/known_hosts\n" >> /etc/ssh/ssh_config
+    #sed -i 's+#   IdentityFile ~+IdentityFile /config+' /etc/ssh/ssh_config
+    #printf "GlobalKnownHostsFile /config/.ssh/known_hosts\n" >> /etc/ssh/ssh_config
 fi
 
 

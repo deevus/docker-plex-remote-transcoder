@@ -1,4 +1,5 @@
-FROM plexinc/pms-docker:latest
+ARG PLEX_VERSION
+FROM plexinc/pms-docker:${PLEX_VERSION}
 MAINTAINER Simon Hartcher <github.com/deevus>
 
 RUN apt-get update -q && \
@@ -26,7 +27,5 @@ RUN mkdir /var/run/sshd
 COPY root/ /
 RUN rm -rf /etc/services.d/plex && \
     sed -i -e 's;/config:/bin/false;/config:/bin/bash;g' /etc/passwd
-
-USER plex
 
 EXPOSE 22

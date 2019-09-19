@@ -12,8 +12,8 @@ then
     printf "Host *\n    ControlPath ~/.ssh/controlmasters/%%r@%%h:%%p\n    ControlMaster auto\n    ControlPersist 2h\n" > /config/.ssh/config
     mkdir -p /config/.ssh/controlmasters
 
-    chown -R plex.plex /config/.ssh
-    chmod 600 /config/.ssh/config /config/.ssh/id_rsa /config/.ssh/id_rsa.pub
+    chown -R plex:plex /config/.ssh
+    #chmod 600 /config/.ssh/config /config/.ssh/id_rsa /config/.ssh/id_rsa.pub
 
-    chown -R plex:plex /usr/lib/plexmediaserver
+    #chown -R plex:plex /usr/lib/plexmediaserver
 fi

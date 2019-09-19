@@ -1,4 +1,5 @@
-FROM plexinc/pms-docker:latest
+ARG PLEX_VERSION
+FROM plexinc/pms-docker:${PLEX_VERSION}
 MAINTAINER Simon Hartcher <github.com/deevus>
 
 RUN apt-get update -q && \
@@ -12,13 +13,9 @@ RUN curl -J -L -o /tmp/prt.zip https://github.com/wnielson/Plex-Remote-Transcode
     rm -rf /tmp/Plex-Remote-Transcoder-master && \
     cd /
 
-USER root
-
 ENV SLAVE_IP=slave_ip \
     SLAVE_PORT=22 \
     SLAVE_USER=plex \
     MASTER_IP=master_ip
-
-RUN chown plex:plex /usr/lib/plexmediaserver -R
 
 COPY root/ /
