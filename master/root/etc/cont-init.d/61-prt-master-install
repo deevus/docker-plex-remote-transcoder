@@ -10,3 +10,5 @@ echo $MASTER_IP | prt install
 # current versions of prt/plex require Library in this location
 ln -s /config/Library /var/lib/plexmediaserver/Library
 
+chown plex:plex /config/.prt.conf
+chmod uga+rw /config/.prt.conf

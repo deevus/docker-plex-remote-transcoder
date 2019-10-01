@@ -1,4 +1,5 @@
-FROM plexinc/pms-docker:latest
+ARG PLEX_VERSION
+FROM plexinc/pms-docker:${PLEX_VERSION}
 MAINTAINER Simon Hartcher <github.com/deevus>
 
 RUN apt-get update -q && \

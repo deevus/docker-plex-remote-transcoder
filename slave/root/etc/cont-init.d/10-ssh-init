@@ -9,11 +9,25 @@ then
         echo "ERROR: public key file not found in /config/.ssh"
         exit 1
     else
-        echo "INFO: importing public key" && \
-        # import public key
-        cat /config/.ssh/id_rsa.pub > /etc/ssh/plex/authorized_keys && \
+        echo "INFO: importing public key" 
+        # import public key - this working because on a 2nd slave, it wont yet exist and can trigger some functions
+        cat /config/.ssh/id_rsa.pub > /etc/ssh/plex/authorized_keys
+        if [ ! -f /config/.ssh/authorized_keys ]
+        then
+            cat /config/.ssh/id_rsa.pub > /config/.ssh/authorized_keys
+            chown david:david /config/.ssh -R
+        else
+            echo "Authorized keys already contained id_rsa.pub"
+        fi
+            
+        #echo "Setting Authorized Files to /etc/ssh/plex/authorized_keys"
+        #echo "AuthorizedKeysFile /etc/ssh/plex/authorized_keys" > /etc/ssh/sshd_config 
+        echo "Setting Authorized Files to /config/.ssh/authorized_keys"
+        echo "AuthorizedKeysFile /config/.ssh/authorized_keys" > /etc/ssh/sshd_config
+
         # enable plex user ssh login
         usermod -p '*' plex
+        #chmod 600 /config/.ssh -R
     fi
 else
     echo "INFO: Public key already loaded. Skipping..."
